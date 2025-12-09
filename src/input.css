@@ -1,0 +1,193 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+@import "tailwindcss" source(none);
+
+@source "./";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-quicksand: "Quicksand", sans-serif;
+  --font-quicksand: "Quicksand", serif;
+  --animate-wavey: wavey 1000ms linear infinite;
+  --animation-delay-100: 100ms;
+  --animation-delay-200: 200ms;
+  --animation-delay-300: 300ms;
+  --animation-delay-400: 400ms;
+  --animation-delay-500: 500ms;
+  --animation-delay-600: 600ms;
+  --animation-delay-700: 700ms;
+  --animation-delay-800: 800ms;
+  --animation-delay-900: 900ms;
+  --animation-delay-1000: 1000ms;
+  --animation-delay-sm: 100ms;
+  --animation-delay-md: 200ms;
+
+  @keyframes wavey {
+    0%,
+    100% {
+      transform: scaleY(0.5);
+    }
+    50% {
+      transform: scaleY(1.5);
+    }
+  }
+}
+
+@utility animation-delay-* {
+  animation-delay: --value(--animation-delay- *);
+  animation-delay: calc(--value(integer) * 1ms);
+  animation-delay: --value([ *]);
+}
+
+@utility nav-closed {
+  display: none;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-quicksand);
+    font-size: 1rem;
+  }
+}
+
+//font sizes will alwaybe calculated with Ai for every new project if we need font size at the smallest screen 360 and laptop
+@layer base {
+  html {
+    font-size: clamp(14px, 2.5vw, 18px);
+  }
+}
+
+@layer base {
+  h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    font-weight: 600;
+  }
+  h4 {
+    font-size: clamp(1.2rem, 1.5vw + 0.8rem, 1.8rem);
+    font-weight: 600;
+  }
+}
+
+/* ICON */
+.navigation__icon {
+  position: relative;
+  //margin-top: 3.5rem;
+  width: 2rem;
+  height: 3px;
+  background-color: #fff;
+  display: inline-block;
+  border-radius: 50rem;
+}
+
+.navigation__icon::before,
+.navigation__icon::after {
+  content: "";
+  width: 2rem;
+  height: 3px;
+  background-color: #fff;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  transition: all 0.2s;
+  border-radius: 50rem;
+}
+
+.navigation__icon::before {
+  top: -0.6rem;
+}
+
+.navigation__icon::after {
+  top: 0.6rem;
+}
+
+.navigation__button:hover .navigation__icon::before {
+  top: -0.7rem;
+}
+
+.navigation__button:hover .navigation__icon::after {
+  top: 0.7rem;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+  background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+  top: 0;
+  transform: rotate(-135deg);
+}
+
+.toggle-hidden {
+  display: none;
+}
+
+
+
+.container {
+  width: 100%;
+  @media (width >= 40rem /* 640px */) {
+    max-width: 40rem /* 640px */;
+  }
+  @media (width >= 48rem /* 768px */) {
+    max-width: 48rem /* 768px */;
+  }
+  @media (width >= 64rem /* 1024px */) {
+    max-width: 64rem /* 1024px */;
+  }
+  @media (width >= 80rem /* 1280px */) {
+    max-width: 80rem /* 1280px */;
+  }
+  @media (width >= 96rem /* 1536px */) {
+    max-width: 96rem /* 1536px */;
+  }
+}
+
+
+
+/* 
+with a background 
+.navigation__icon::before {
+    top: -.6rem;
+}
+
+.navigation__icon::after {
+    top: .6rem;
+}
+
+.navigation__button:hover .navigation__icon::before {
+    top: -1rem;
+}
+
+.navigation__button:hover .navigation__icon::after {
+    top: 1rem;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon {
+    background-color: transparent;
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+}
+
+.navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+    top: 0;
+    transform: rotate(-135deg);
+}
+*/

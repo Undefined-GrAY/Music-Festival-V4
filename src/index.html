@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/dist/output.css" rel="stylesheet" />
+    <script defer src="/src/assets/fontawesome/js/solid.min.js"></script>
+    <script defer src="/src/assets/fontawesome/js/fontawesome.min.js"></script>
+  </head>
+  <body class="dark">
+    <main>
+      <header>
+        <!--dark toggle btn-->
+        <button
+          id="theme-btn"
+          class="fixed z-28 right-0 top-32 px-2 py-1 bg-amber-100 rounded-l-xl dark:bg-gradient-to-br from-blue-950 via-cyan-700 to-teal-800"
+        >
+          <span class="hidden dark:inline">
+            <svg class="icon fill-zinc-200 size-8">
+              <use
+                xlink:href="/src/assets/images/symbol-defs.svg#icon-moon"
+              ></use>
+            </svg>
+          </span>
+          <span class="dark:hidden">
+            <svg class="icon fill-amber-500 size-8">
+              <use
+                xlink:href="/src/assets/images/symbol-defs.svg#icon-light-up"
+              ></use>
+            </svg>
+          </span>
+        </button>
+
+        <!--nav wrapper-->
+        <nav
+          class="sticky top-0 flex-col items-center z-10 bg-gradient-to-r from-rose-500 to-pink-500"
+        >
+          <!--nav start-->
+          <div class="flex items-center w-full justify-between">
+            <div class="p-2 flex items-center">
+              <img
+                src="/src/assets/images/logo-inverted.png"
+                alt="logo"
+                class="h-12"
+              />
+              <div class="text-2xl font-bold ml-2 text-white">
+                tw:<span class="text-slate-800">mf</span>
+              </div>
+            </div>
+
+            <!--hamburger button-->
+            <input
+              type="checkbox"
+              class="navigation__checkbox hidden"
+              id="navi-toggle"
+            />
+            <button
+              class="navigation__button h-8 flex flex-col ml-auto mr-4 md:hidden"
+            >
+              <label for="navi-toggle" class="navigation__button">
+                <span class="navigation__icon justify-self-center"></span>
+              </label>
+            </button>
+
+            <!--nav for screen md -->
+            <div class="hidden self-stretch md:flex text-zinc-200">
+              <div
+                class="group flex items-center p-4 h-full relative font-bold hover:text-zinc-50 hover:bg-white/10"
+              >
+                Home
+                <!--sub nav-->
+                <div
+                  class="hidden group-hover:block absolute right-0 top-full bg-pink-500 rounded-b-xl"
+                >
+                  <!--sub nav content-->
+                  <div class="font-semibold whitespace-nowrap">
+                    <div class="p-4 hover:bg-white/10 hover:text-zinc-50">
+                      Profile
+                    </div>
+                    <div class="p-4 hover:bg-white/10 hover:text-zinc-50">
+                      Tours
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="group flex items-center p-4 h-full relative font-bold hover:text-zinc-50 hover:bg-white/10"
+              >
+                Lineup
+                <!--sub nav-->
+                <div
+                  class="hidden group-hover:block absolute right-0 top-full bg-pink-500 rounded-b-xl"
+                >
+                  <!--sub nav content-->
+                  <div class="font-semibold whitespace-nowrap">
+                    <div class="p-4 hover:bg-white/10 hover:text-zinc-50">
+                      Dates
+                    </div>
+                    <div class="p-4 hover:bg-white/10 hover:text-zinc-50">
+                      Location
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="group flex items-center p-4 h-full relative font-bold hover:text-zinc-50 hover:bg-white/10"
+              >
+                Tickets
+                <!--sub nav-->
+                <div
+                  class="hidden group-hover:block absolute right-0 top-full bg-pink-500 rounded-b-xl"
+                >
+                  <!--sub nav content-->
+                  <div class="font-semibold whitespace-nowrap">
+                    <div class="p-4 hover:bg-white/10 hover:text-zinc-50">
+                      Single day tickets
+                    </div>
+                    <div class="p-4 hover:bg-white/10 hover:text-zinc-50">
+                      7 days tickets
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex items-center p-4 h-full relative font-bold hover:text-zinc-50 hover:bg-white/10"
+              >
+                Support
+                <!--sub nav-->
+                <div
+                  class="hidden group-hover:block absolute right-0 top-full bg-pink-500 rounded-b-xl"
+                >
+                  <!--sub nav content-->
+                  <div class="font-semibold whitespace-nowrap">
+                    <div class="p-4 hover:bg-white/10 hover:text-zinc-50">
+                      Contacts
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- drop down nav- background-->
+          <div
+            class="header-dropdown toggle-hidden text-center items-center bg-gradient-to-r from-rose-500 to-pink-500 absolute w-full top-[55px] z-5"
+          >
+            <!---dropdown button 1-->
+            <div class="group nav-btn text-zinc-200 hover:bg-white/10">
+              <span class="p-4 inline-block font-bold group-hover:text-zinc-50"
+                >Home</span
+              >
+              <!--sub toggle-dropdown RED-->
+              <div
+                class="toggle-hidden nav-subheading text-sm transition-all duration-200"
+              >
+                <!--block elements-->
+                <span
+                  class="text-center hover:bg-white/20 p-4 font-light hover:text-zinc-50 block"
+                  >Tours</span
+                >
+                <span
+                  class="text-center hover:bg-white/20 p-4 font-light hover:text-zinc-50 block"
+                  >Profile</span
+                >
+              </div>
+            </div>
+            <div class="group nav-btn text-zinc-200 hover:bg-white/10 bg">
+              <span class="p-4 inline-block font-bold group-hover:text-zinc-50"
+                >Lineup</span
+              >
+              <!--sub toggle-dropdown RED-->
+              <div
+                class="toggle-hidden nav-subheading text-sm transition-all duration-200"
+              >
+                <!--block elements-->
+                <span
+                  class="text-center hover:bg-white/20 p-4 font-light hover:text-zinc-50 block"
+                  >Vip</span
+                >
+                <span
+                  class="text-center hover:bg-white/20 p-4 font-light hover:text-zinc-50 block"
+                  >regular</span
+                >
+              </div>
+            </div>
+            <div class="group nav-btn text-zinc-200 hover:bg-white/10 bg">
+              <span class="p-4 inline-block font-bold group-hover:text-zinc-50"
+                >Tickets</span
+              >
+              <!--sub toggle-dropdown RED-->
+              <div
+                class="toggle-hidden nav-subheading text-sm transition-all duration-200"
+              >
+                <!--block elements-->
+                <span
+                  class="text-center hover:bg-white/20 p-4 font-light hover:text-zinc-50 block"
+                  >Single day ticket</span
+                >
+                <span
+                  class="text-center hover:bg-white/20 p-4 font-light hover:text-zinc-50 block"
+                  >7 day ticket</span
+                >
+              </div>
+            </div>
+            <div class="group nav-btn text-zinc-200 hover:bg-white/10 bg">
+              <span class="p-4 inline-block font-bold group-hover:text-zinc-50"
+                >Support</span
+              >
+              <!--sub toggle-dropdown RED-->
+              <div
+                class="toggle-hidden nav-subheading text-sm transition-all duration-200"
+              >
+                <!--block elements-->
+                <span
+                  class="text-center hover:bg-white/20 p-4 font-light hover:text-zinc-50 block"
+                  >chat with us</span
+                >
+                <span
+                  class="text-center hover:bg-white/20 p-4 font-light hover:text-zinc-50 block"
+                  >contact us</span
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            id="nav-overlay"
+            class="fixed w-screen min-h-screen toggle-hidden backdrop-blur-xs"
+          ></div>
+        </nav>
+
+        <!-- hero section-->
+        <div
+          style="background-image: url(/src/assets/images/hero.jpg)"
+          class="h-[calc(100vh-200px)] min-h-[400px] bg-cover bg-center bg-fixed w-full flex flex-col items-center justify-center text-zinc-100"
+        >
+          <!-- hero content-->
+          <div
+            class="text-white backdrop-blur-xl bg-white/25 overflow-hidden rounded-2xl flex flex-col items-center"
+          >
+            <img
+              src="/src/assets/images/logo.png"
+              alt="brand-logo"
+              class="h-38 mt-2"
+            />
+            <!--animation wave-->
+            <span
+              class="bg-pink-500 flex h-13 w-13 rounded-full -mt-16 text-white items-center px-1 justify-center gap-[3px]"
+            >
+              <span
+                class="h-2 border-2 border-white rounded-full animate-wavey"
+              ></span>
+              <span
+                class="h-3 border-2 border-white rounded-full animate-wavey animation-delay-[150ms]"
+              ></span>
+              <span
+                class="h-5 border-2 border-white rounded-full animate-wavey animation-delay-300"
+              ></span>
+              <span
+                class="h-3 border-2 border-white rounded-full animate-wavey animation-delay-[75ms]"
+              ></span>
+              <span
+                class="h-2 border-2 border-white rounded-full animate-wavey"
+              ></span>
+            </span>
+            <p class="text-[2.75rem] font-bold text-white px-7">
+              tw:<span class="text-sky-900">mf</span>
+            </p>
+            <div
+              style="background-image: url(/src/assets/images/logo.png)"
+            ></div>
+          </div>
+
+          <p class="text-sm text-center mt-2 font-bold">
+            Keep me updated with news and promotions
+          </p>
+          <form action="#" class="mt-2 font-bold">
+            <input
+              type="text"
+              class="py-2 px-4 backdrop-blur-xl bg-white/25 rounded-md focus:outline-pink-500 outline-pink-500 outline border border-white/40 text-zinc-600"
+              placeholder="Email"
+            />
+            <button class="ml-1 py-[9.5px] px-6 bg-pink-500 rounded-md">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </header>
+      <!-- body section 1-->
+      <section class="dark:bg-zinc-900 py-12 dark:text-zinc-200 md:px-10">
+        <div class="section-content max-w-7xl mx-auto">
+          <div class="px-2 md:px-0">
+            <h1
+              class="bg-clip-text text-transparent bg-gradient-to-r from-sky-400 to-pink-500 inline-block"
+            >
+              Headliners
+            </h1>
+            <p>
+              Experience the sonic delight from these made-up artists across 7
+              days that music fans are calling “one of the many gigs that will
+              happen this year”
+            </p>
+          </div>
+          <!-- carousel section wrapper-->
+          <div class="flex items-center">
+            <button class="prevbtn hidden md:block">
+              <svg class="icon fill-zinc-200 h-15 w-15">
+                <use
+                  xlink:href="/src/assets/images/symbol-defs.svg#icon-chevron-left"
+                ></use>
+              </svg>
+            </button>
+            <div
+              id="carousel"
+              class="sm:relative scroll-smooth mt-4 flex flex-1 gap-4 snap-x overflow-x-auto pb-5"
+            >
+              <div>
+                <div
+                  style="background-image: url(/src/assets/images/band1.jpg)"
+                  class="bg-cover min-w-80 h-80 snap-center rounded-lg"
+                ></div>
+                <h4>Corduroy Gary</h4>
+                <p class="text-lg font-bold">1st July 9pm - Main Stage</p>
+              </div>
+              <div>
+                <div
+                  style="background-image: url(/src/assets/images/band2.jpg)"
+                  class="bg-cover min-w-80 h-80 snap-center rounded-lg"
+                ></div>
+                <h4>Dave's showing off again</h4>
+                <p class="text-lg font-bold">1st July 9pm - Main Stage</p>
+              </div>
+              <div>
+                <div
+                  style="background-image: url(/src/assets/images/band3.jpg)"
+                  class="bg-cover min-w-80 h-80 snap-center rounded-lg"
+                ></div>
+                <h4>Sarah can't have dairy</h4>
+                <p class="text-lg font-bold">1st July 9pm - Main Stage</p>
+              </div>
+              <div>
+                <div
+                  style="background-image: url(/src/assets/images/band4.jpg)"
+                  class="bg-cover min-w-80 h-80 snap-center rounded-lg"
+                ></div>
+                <h4>David Gray</h4>
+                <p class="text-lg font-bold">1st July 9pm - Main Stage</p>
+              </div>
+              <div>
+                <div
+                  style="background-image: url(/src/assets/images/band5.jpg)"
+                  class="bg-cover min-w-80 h-80 snap-center rounded-lg"
+                ></div>
+                <h4>Corduroy Gary</h4>
+                <p class="text-lg font-bold">1st July 9pm - Main Stage</p>
+              </div>
+              <div>
+                <div
+                  style="background-image: url(/src/assets/images/band6.jpg)"
+                  class="bg-cover min-w-80 h-80 snap-center rounded-lg"
+                ></div>
+                <h4>The Star-lighters</h4>
+                <p class="text-lg font-bold">1st July 9pm - Main Stage</p>
+              </div>
+              <div>
+                <div
+                  style="background-image: url(/src/assets/images/band7.jpg)"
+                  class="bg-cover min-w-80 h-80 snap-center rounded-lg"
+                ></div>
+                <h4>Running man</h4>
+                <p class="text-lg font-bold">1st July 9pm - Main Stage</p>
+              </div>
+            </div>
+            <button class="nextbtn hidden md:block">
+              <svg class="icon fill-zinc-200 h-15 w-15 font-bold">
+                <use
+                  class="border-8 border-solid"
+                  xlink:href="/src/assets/images/symbol-defs.svg#icon-chevron-right"
+                ></use>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- body section 2-->
+      <section class="dark:bg-zinc-900 px-2 py-12 dark:text-zinc-200 md:px-10">
+        <div class="section-content max-w-7xl mx-auto">
+          <h2 class="font-bold text-4xl">Lineup</h2>
+          <p>
+            Follow the timetable and stage to ensure you don't miss your
+            favorite artists
+          </p>
+
+          <!--line infography wrapper-->
+          <div class="relative w-full bg-zinc-800 px-2 rounded-lg mt-6">
+            <!--middle scroll animation-->
+            <div
+              class="absolute top-0 left-1/2 w-4 h-full bg-gradient-to-b from-blue-950 via-cyan-700 to-teal-800 rounded-lg -translate-x-2"
+            >
+              <!--animation ping-->
+              <div class="sticky top-1/3">
+                <div class="w-4 h-4 rounded-lg bg-rose-500">
+                  <div
+                    class="w-4 h-4 rounded-lg bg-rose-500 animate-ping"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <!--line up content-->
+            <div class="grid grid-cols-2 gap-8 text-zinc-200">
+              <div class="m">
+                <h2
+                  class="font-semibold capitalize p-2 bg-zinc-900 rounded-lg my-4"
+                >
+                  1st July
+                </h2>
+              </div>
+
+              <div>
+                <h2></h2>
+              </div>
+
+              <div class="capitalize text-right mb-2">
+                <p class="font-bold">jackie winston</p>
+                <p class="">6pm - sage stage</p>
+              </div>
+
+              <div>
+                <p></p>
+                <p></p>
+              </div>
+              <div>
+                <p></p>
+                <p></p>
+              </div>
+
+              <div class="capitalize text-left mb-2">
+                <p class="font-bold">david gray</p>
+                <p class="">11pm - uriel stadium</p>
+              </div>
+
+              <div>
+                <h2
+                  class="font-semibold capitalize p-2 bg-zinc-900 rounded-lg my-4"
+                >
+                  8th July
+                </h2>
+              </div>
+              <div>
+                <h2></h2>
+              </div>
+
+              <div class="capitalize text-right mb-2">
+                <p class="font-bold">Running man</p>
+                <p class="">12pm - anthorax stadium</p>
+              </div>
+
+              <div>
+                <p></p>
+                <p></p>
+              </div>
+              <div>
+                <p></p>
+                <p></p>
+              </div>
+
+              <div class="capitalize text-left mb-2">
+                <p class="font-bold">Cardury gary</p>
+                <p class="">12pm - Euphoria haven</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- body section 2-->
+      <section
+        class="dark:bg-zinc-900 px-2 py-12 dark:text-zinc-200 md:px-10 h-[500px]"
+      >
+        <div class="section-content max-w-7xl mx-auto">
+          <h2 class="capitalize">tickets</h2>
+          <!--we have container class that add outer max width and @container that  controls the inner width of children container based on it parent container width when resizing -->
+          <!--container experiment -->
+          <div class="@container">
+            <table
+              class="border border-zinc-500 w-full border-collapse capitalize"
+            >
+              <thead class="font-bold">
+                <td class="py-3 px-2 border-zinc-500 border">tickets</td>
+                <td class="py-3 px-2 border-zinc-500 border">price</td>
+                <td class="w-[150px]"></td>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="py-3 px-2 border-zinc-500 border">
+                    single day tickets
+                  </td>
+                  <td class="py-3 px-2 border-zinc-500 border">$30</td>
+                  <td class="py-3 px-2 border-zinc-500 border @max-xl:hidden">
+                    <button class="bg-rose-500 py-2 px-3 rounded-lg">
+                      Bye now
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="py-3 px-2 border-zinc-500 border">
+                    7 days tickets
+                  </td>
+                  <td class="py-3 px-2 border-zinc-500 border">$30</td>
+                  <td class="py-3 px-2 border-zinc-500 border">
+                    <button class="bg-rose-500 py-2 px-3 rounded-lg">
+                      Bye now
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+
+              <caption class="caption-bottom">
+                once they're gone, they are gone
+              </caption>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      //toggle dark mode
+      const themeBtnElem = document.getElementById("theme-btn");
+      const body = document.body;
+      themeBtnElem.addEventListener("click", () => {
+        if (body.classList.contains("dark")) {
+          body.classList.remove("dark");
+          console.log("yes");
+        } else {
+          body.classList.add("dark");
+          console.log("no");
+        }
+      });
+
+      //carousel scroll btn
+      const prevbtn = document.querySelector(".prevbtn");
+      const nextbtn = document.querySelector(".nextbtn");
+      const carousel = document.getElementById("carousel");
+      nextbtn.addEventListener("click", () => {
+        const itemWidth = carousel.getElementsByTagName("div")[0].clientWidth;
+        carousel.scrollLeft = carousel.scrollLeft + itemWidth;
+      });
+
+      prevbtn.addEventListener("click", () => {
+        const itemWidth = carousel.getElementsByTagName("div")[0].clientWidth;
+        carousel.scrollLeft = carousel.scrollLeft - itemWidth;
+      });
+
+      //hamburger menu + nav overlay
+      const labelElem = document.querySelector(".header-dropdown");
+      const checkbox = document.getElementById("navi-toggle");
+      const navOverlay = document.getElementById("nav-overlay");
+
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          labelElem.classList.remove("toggle-hidden");
+          navOverlay.classList.remove("toggle-hidden");
+          navOverlay.addEventListener("click", () => {
+            labelElem.classList.add("toggle-hidden");
+            navOverlay.classList.add("toggle-hidden");
+            checkbox.checked = false;
+          });
+        } else {
+          labelElem.classList.add("toggle-hidden");
+          navOverlay.classList.add("toggle-hidden");
+        }
+      });
+
+      //sub nav button
+      const navbtnElem = document.querySelectorAll(".nav-btn");
+      navbtnElem.forEach((element) => {
+        element.addEventListener("click", () => {
+          const childElem = element.querySelector(".nav-subheading");
+          const toggleChild = childElem.classList.contains("toggle-hidden");
+
+          if (toggleChild) {
+            childElem.classList.remove("toggle-hidden");
+          } else {
+            childElem.classList.add("toggle-hidden");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
